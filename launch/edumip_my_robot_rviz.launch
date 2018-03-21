@@ -1,0 +1,18 @@
+<launch>
+
+    <!-- edumip publisher node-->
+    <node pkg="edumip_my_robot_gazebo_ros" type="edumip_my_robot_publisher_hw6" name="edumip_publisher1" />
+
+
+    <!-- RSP node-->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+
+    <!-- Set Parameter-->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find edumip_my_robot_gazebo_ros)/urdf/edumip_my_robot.xacro" />
+
+
+    <!-- rviz node-->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find edumip_my_robot_gazebo_ros)/rviz/edumip_gazebo_rviz_hw6.rviz" required="true" />
+
+</launch>

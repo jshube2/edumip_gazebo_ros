@@ -1,0 +1,7 @@
+<launch>
+    <!-- JoyTwist node-->
+
+    <node pkg="edumip_my_robot_gazebo_ros" type="joy_twist_node" name="joy_twist_node1" />
+    <node pkg="joy" type="joy_node" name="joy_node1" />
+
+</launch>

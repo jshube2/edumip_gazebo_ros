@@ -1,0 +1,14 @@
+<launch>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find edumip_my_robot_gazebo_ros)/worlds/edumip_my_robot.world"/>
+    <arg name="paused" value="true"/>
+  </include>
+
+  <!-- Convert an xacro and put on parameter server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find edumip_my_robot_gazebo_ros)/urdf/edumip_my_robot.xacro" />
+
+  <!-- Spawn a robot into Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model edumip_my_robot -z 0.034" />
+
+</launch>
